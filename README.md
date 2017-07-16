@@ -1,6 +1,6 @@
 # Docker Container for the [Friend Unifying Platform][1]
 
-This container allows to run FriendUP in a Docker container. When you build it
+This container allows to run FriendUP in Docker. When you build it
 for yourself, it pulls the latest source code from their [Github page][2]
 and builds it.
 
