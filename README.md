@@ -45,18 +45,29 @@ database name, user and password.
 ### The container
 
 ```sh
-docker run -d --name windfisch/friendup
+docker run -d --name friendup
            --link database-container-name:frienddbhost \
            -e DB_NAME=friend-db-name \
            -e DB_USER=friend-db-user \
            -e DB_PASS=friend-db-password \
-           -e DB_HOST=frienddbhost
+           -e DB_HOST=frienddbhost \
+           -p 6500-6504:6500-6504 \
+           windfisch/friendup:latest
 ```
 
 This runs the FriendUP container using a pre-created MySQL container.
 You can also use another source for the MySQL database, but the database
 and user must both exist and the user must have both read and write rights.
 
+## Using
+
+When the container is started, point your webbrowser to http://localhost:6502
+and log in with:
+
+Username: fadmin
+Password: securefassword
+
+Have fun!
 
 [1]: https://friendup.cloud
 [2]: https://github.com/FriendSoftwareLabs/friendup
