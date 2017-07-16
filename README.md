@@ -64,8 +64,10 @@ and user must both exist and the user must have both read and write rights.
 When the container is started, point your webbrowser to http://localhost:6502
 and log in with:
 
+```text
 Username: fadmin
 Password: securefassword
+```
 
 Have fun!
 
