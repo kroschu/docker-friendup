@@ -1,0 +1,1 @@
+friend  ALL=(ALL:ALL) NOPASSWD:ALL
