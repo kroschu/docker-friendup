@@ -11,7 +11,7 @@ RUN apt-get -y install git-core libssh2-1-dev libssh-dev libssl-dev libaio-dev \
         php5-cli php5-curl php5-mysql php5-gd php5-imap \
         libmysqlclient-dev build-essential libmatheval-dev libmagic-dev \
         libgd-dev libwebsockets-dev rsync valgrind-dbg libxml2-dev php5-readline \
-        cmake sudo
+        cmake sudo mysql-client
 
 RUN adduser friend
 
@@ -29,12 +29,16 @@ WORKDIR /home/friend/friendup
 
 RUN make clean setup compile install
 WORKDIR /home/friend/friendup/build
+ADD docker-friendup.sh /home/friend/friendup/build/
+RUN sudo chmod +x docker-friendup.sh
+
+CMD ./docker-friendup.sh
 
 # Defaults
-ENV DB_HOST=mysql
+ENV DB_HOST=friendupdb
 ENV DB_PORT=3306
-ENV DB_NAME=friend
-ENV DB_USER=friend
-ENV DB_PASS=friend
+ENV DB_NAME=friendup
+ENV DB_USER=friendup
+ENV DB_PASS=friendup
 
 EXPOSE 6500-6504
