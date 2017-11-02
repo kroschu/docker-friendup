@@ -13,7 +13,9 @@ RUN apt-get -y install git-core libssh2-1-dev libssh-dev libssl-dev libaio-dev \
         php5-cli php5-curl php5-mysql php5-gd php5-imap \
         libmysqlclient-dev build-essential libmatheval-dev libmagic-dev \
         libgd-dev libwebsockets-dev rsync valgrind-dbg libxml2-dev php5-readline \
-        cmake sudo mysql-client
+        cmake sudo mysql-client \
+        libsqlite3-dev libsmbclient-dev libssh2-1-dev libssh-dev libaio-dev \
+        ssh curl build-essential python
 
 # We'll run this with a normal user.
 RUN adduser friend
@@ -34,7 +36,8 @@ RUN git clone https://github.com/FriendSoftwareLabs/friendup
 WORKDIR /home/friend/friendup
 
 # Compile everything
-RUN make clean setup compile install
+RUN make setup
+RUN make clean setup release install
 
 # Put the startup script into the run directory
 WORKDIR /home/friend/friendup/build
