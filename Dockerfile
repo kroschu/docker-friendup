@@ -1,6 +1,6 @@
-FROM debian:jessie
+FROM resin/armv7hf-debian
 
-MAINTAINER Jens Rabe <schaumwaffelpilot@googlemail.com>
+MAINTAINER Volodymyr Kovalenko <tukroschu@gmail.com>
 
 # Some preparations
 ENV HOME /root
